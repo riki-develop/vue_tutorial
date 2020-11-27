@@ -11,17 +11,28 @@
     <div id="app">
         <p>{{ counter }}</p>
         <button @click="counter += 1">+ 1</button>
-        <p>{{ less }}</p>
+        <p>{{ otherCounter }}</p>
+        <button @click="otherCounter += 1">+ 1</button>
+        <p>{{ lessComputed }}</p>
+        <p>{{ lessMethod() }}</p>
     </div>
 </body>
     <script>
         new Vue({
             el: "#app",
             data: {
-                counter: 0
+                counter: 0,
+                otherCounter: 0
             },
             computed: {
-                less: function() {
+                lessComputed: function() {
+                    console.log('com')
+                    return this.counter > 3 ? '3より上':'3より下';
+                }
+            },
+            methods: {
+                lessMethod: function() {
+                    console.log('met')
                     return this.counter > 3 ? '3より上':'3より下';
                 }
             }
