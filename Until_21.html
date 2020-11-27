@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- イベントについて -->
+        <p>現在{{ number }}回クリックされています</p>
+        <!-- イベント直書きパターン -->
+        <button v-on:click="number += 1">カウントアップ</button>
+        <!-- 関数指定パターン -->
+        <button v-on:click="countUp(4)">カウントアップ</button>
+
+
+        <!-- イベント修飾子 例：stopPropagation -->
+        <p v-on:mousemove="changMousePosition($event, 4)">
+        マウスを乗せて下さい
+        <span v-on:mousemove.stop="noEvent">反応しないで下さい</span>
+        <span v-on:mousemove.stop>反応しないで下さい</span>
+        </p>
+        <p>X:{{x}}, Y:{{y}}</p>
+
+
+        <!-- イベント修飾子 例：preventDefault -->
+        <div><a v-on:click="noEvent02" href="https://google.com">Google</a></div>
+        <div><a v-on:click.prevent href="https://google.com">Google</a></div>
+        <!-- イベント修飾子は連結もできる -->
+        <div><a v-on:click.stop.prevent href="https://google.com">Google</a></div>
+
+
+        <!-- キー修飾子 -->
+        <input type="text" v-on:keyup.enter="goAlert">
+        <input type="text" v-on:keyup.space="goAlert">
+        <!-- キー修飾子は連結もできる -->
+        <input type="text" v-on:keyup.space.enter="goAlert">
+    </div>
+</body>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                number: 0,
+                x:0,
+                y:0
+            },
+            methods: {
+                countUp: function(c) {
+                    this.number += 1 * c;
+                },
+                changMousePosition: function(event, divideNumber) {
+                    // console.log(e);
+                    this.x = event.clientX / divideNumber;
+                    this.y = event.clientY / divideNumber;
+                },
+                noEvent: function(event) {
+                    event.stopPropagation();
+                },
+                noEvent02: function(event) {
+                    event.preventDefault();
+                },
+                goAlert() {
+                    alert('ちょっと待った');
+                }
+            }
+        })
+    </script>
+</html>

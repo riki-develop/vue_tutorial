@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    ディレクティブの基本
+    v-bindの概要
+
+    <div id="app">
+        <!-- 文字列 -->
+        <p>{{ message }}</p>
+
+        <!-- 三項演算子 -->
+        <p>{{number + 5}}</p>
+
+        <!-- 条件分岐 -->
+        <p>{{ok ? 'YES' : 'NO'}}</p>
+
+        <!-- HTML出力 -->
+        <p v-html="html"></p>
+
+        <!-- V-bind：使用例 -->
+        <a v-bind:[attrhref]="urlGoogle">Goole</a>
+        <a v-bind:href="urlTwitter" v-bind:id="attrid">Twitter</a>
+        <a v-bind="attrObj">Twitter</a>
+    </div>
+</body>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: "Hello World",
+                number: 3,
+                ok: true,
+                html: '<h1>h1です</h1>',
+
+                urlGoogle: 'https://google.com',
+                urlTwitter: 'https://twitter.com/home',
+                attrhref: 'href',
+                attrid: 'id-twitter',
+
+                attrObj: {
+                    href: 'https://twitter.com/home',
+                    id: 'id-obj'
+                }
+            }
+        })
+    </script>
+</html>
