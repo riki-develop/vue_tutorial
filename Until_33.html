@@ -18,7 +18,11 @@
 
 <body>
     <div id="app">
+        <!-- dataを直接指定するパターン -->
         <h1 :style="{color: textColor, 'background-color': bgColor}">Hello</h1>
+
+        <!-- オブジェクトにまとめるパターン -->
+        <h1 :style="styleObj">Hello</h1>
     </div>
 </body>
     <script>
@@ -26,7 +30,12 @@
             el: "#app",
             data: {
                 textColor: 'red',
-                bgColor: 'blue'
+                bgColor: 'blue',
+
+                styleObj: {
+                    color: 'red',
+                    'background-color': 'blue'
+                }
             }
         })
     </script>
