@@ -14,7 +14,8 @@
         <!-- イベント直書きパターン -->
         <button v-on:click="number += 1">カウントアップ</button>
         <!-- 関数指定パターン -->
-        <button v-on:click="countUp(4)">カウントアップ</button>
+        <!-- v-onは@マークでも表現可 -->
+        <button @click="countUp(4)">カウントアップ</button>
 
 
         <!-- イベント修飾子 例：stopPropagation -->

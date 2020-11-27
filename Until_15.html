@@ -26,7 +26,8 @@
 
         <!-- V-bind：使用例 -->
         <a v-bind:[attrhref]="urlGoogle">Goole</a>
-        <a v-bind:href="urlTwitter" v-bind:id="attrid">Twitter</a>
+        <!-- v-bindは省略して【:】でも表現可 -->
+        <a :href="urlTwitter" v-bind:id="attrid">Twitter</a>
         <a v-bind="attrObj">Twitter</a>
     </div>
 </body>
