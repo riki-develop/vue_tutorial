@@ -23,6 +23,9 @@
 
         <!-- オブジェクトにまとめるパターン -->
         <h1 :style="styleObj">Hello</h1>
+
+        <!-- 配列で複数指定パターン -->
+        <h1 :style="[styleObj, baseStyleObj]">Hello</h1>
     </div>
 </body>
     <script>
@@ -35,6 +38,10 @@
                 styleObj: {
                     color: 'red',
                     'background-color': 'blue'
+                },
+                baseStyleObj: {
+                    fontSize: '40px',
+                    textAlign: 'center'
                 }
             }
         })
