@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<style>
+.red {
+    color: red;
+}
+.bg-blue {
+    background-color: blue;
+}
+</style>
+
+<body>
+    <div id="app">
+        <!-- インラインで指定したパターン -->
+        <!-- <h1 :class="{red: false, 'bg-blue': true}">Hello</h1> -->
+        <!-- <h1 :class="{red: isActive, 'bg-blue': !isActive}">Hello</h1> -->
+
+        <!-- computedでClass指定したパターン -->
+        <h1 :class="classObj">Hello</h1>
+        <button @click="isActive = !isActive">切り替え</button>
+
+        <!-- 動的にClassを表現するパターン -->
+        <h1 :class="[color, bg]">Hello</h1>
+    </div>
+</body>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                isActive: true,
+
+                color: 'red',
+                bg: 'bg-blue'
+            },
+            computed: {
+                classObj: function() {
+                    return {
+                        red: this.isActive,
+                        'bg-blue': !this.isActive
+                    }
+                }
+            }
+        })
+    </script>
+</html>
