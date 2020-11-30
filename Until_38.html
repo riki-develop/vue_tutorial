@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="ok">OK!</p>
+        <p v-else-if="MaybeOk">Maybe!</p>
+        <p v-else>Not OK…</p>
+    </div>
+</body>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                ok: false,
+                MaybeOk: true
+            }
+        })
+    </script>
+</html>
